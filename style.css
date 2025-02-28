@@ -1,0 +1,63 @@
+body {
+	background-color: #ff00ff;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	color: #00ff00;
+	margin: 0;
+	padding: 0;
+}
+
+h1,
+h2,
+h3 {
+	font-size: 50px;
+	text-align: center;
+	text-transform: uppercase;
+	text-shadow: 5px 5px 0px red;
+}
+
+p {
+	font-size: 22px;
+	line-height: 1.1;
+	background-color: yellow;
+	padding: 20px;
+	border: 5px dashed blue;
+	margin: 30px auto;
+	width: 80%;
+}
+
+button {
+	background-color: cyan;
+	color: purple;
+	font-size: 25px;
+	padding: 15px;
+	border: 3px dotted red;
+	cursor: pointer;
+	transition: all 0.1s ease-in-out;
+}
+
+button:hover {
+	background-color: red;
+	color: yellow;
+	transform: rotate(10deg) scale(1.3);
+}
+
+a {
+	color: orange;
+	font-weight: bold;
+	text-decoration: underline wavy pink;
+}
+
+a:hover {
+	color: black;
+	background-color: lime;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 95vw;
+	height: 90vh;
+	border: 10px groove magenta;
+}
