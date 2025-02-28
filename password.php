@@ -9,46 +9,75 @@
 <body>
 <?php
     function generaPasswordSicura() {
-        
-        if (isset($_POST ["username"])) {
-            $username = $_POST ["username"];
 
-            if (isset($_POST ["pwlen"])) {
-                $pwlen = $_POST ["pwlen"];
+        if (($_POST ["username"] != "") && (($_POST ["pwlen"] >= 6) && ($_POST ["pwlen"] <= 20))) {
+            $username = $_POST ["username"];
+            $pwlen = $_POST ["pwlen"];
+
+            $uppercase = range('A', 'Z');                  // A-Z
+            $lowercase = range('a', 'z');                  // a-z
+            $digits = range('0', '9');                     // 0-9
+            $specials = array_map('chr', range(33, 47)) +  // ! " # $ % & ' ( ) * + , - . /
+                        array_map('chr', range(58, 64)) +  // : ; < = > ? @
+                        array_map('chr', range(91, 96)) +  // [ \ ] ^ _ `
+                        array_map('chr', range(123, 126)); // { | } ~
+        
+            $alphabet = [];
+
+            if(isset($_POST ["lowercase"])) {
+                $checkLower = true;
+                $alphabet = array_merge($alphabet, $lowercase);
             } else {
-                echo "<alert>Invalid password!</alert>";
+                $checkLower = false;
             }
+            if(isset($_POST ["uppercase"])) {
+                $checkUpper = true;
+                $alphabet = array_merge($alphabet, $uppercase);
+            } else {
+                $checkUpper = false;
+            }
+            if(isset($_POST ["digits"])) {
+                $checkDigits = true;
+                $alphabet = array_merge($alphabet, $digits);
+            } else {
+                $checkDigits = false;
+            }
+            if(isset($_POST ["specials"])) {
+                $checkSpecials = true;
+                $alphabet = array_merge($alphabet, $specials);
+            } else {
+                $checkSpecials = false;
+            }
+        
+            $password = [];
+                    
+            for ($i = 0; $i < $pwlen; $i++) {
+                $password[] = $alphabet[array_rand($alphabet)];
+            }
+        
+            shuffle($password);
+        
+            return implode('', $password);
+
         } else {
-            echo "<alert>Invalid username!</alert>";
+            echo "<p>INVALID DATA !!!</p>";
         }
-    
-        $uppercase = range('A', 'Z');                  // A-Z
-        $lowercase = range('a', 'z');                  // a-z
-        $digits = range('0', '9');                     // 0-9
-        $specials = array_map('chr', range(33, 47)) +  // ! " # $ % & ' ( ) * + , - . /
-                    array_map('chr', range(58, 64)) +  // : ; < = > ? @
-                    array_map('chr', range(91, 96)) +  // [ \ ] ^ _ `
-                    array_map('chr', range(123, 126)); // { | } ~
-    
-        $alphabet = array_merge($uppercase, $lowercase, $digits, $specials);
-    
-        $password = [];
-    
-        $password[] = $uppercase[array_rand($uppercase)];
-        $password[] = $lowercase[array_rand($lowercase)];
-        $password[] = $digits[array_rand($digits)];
-        $password[] = $specials[array_rand($specials)];
-    
-        for ($i = 4; $i < $pwlen; $i++) {
-            $password[] = $alphabet[array_rand($alphabet)];
-        }
-    
-        shuffle($password);
-    
-        return implode('', $password);
     };
+    echo "<h1 id='password-text'>" . generaPasswordSicura() . "</h1>";
     
-    echo "<h1>" . generaPasswordSicura() . "</h1>";
-?>  
+    ?>  
+    <button onclick="copia()">Copy</button>
+    <script>
+        function copia() {
+            let passwordText = document.getElementById('password-text');
+            let password = document.createElement('input');
+            password.value = passwordText.innerText;
+            document.body.appendChild(password);
+            password.select();
+            document.execCommand('copy');
+            console.log('Copiato'); 
+            document.body.removeChild(password);
+        }
+    </script>
 </body>
 </html>

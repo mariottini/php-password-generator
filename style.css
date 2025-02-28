@@ -11,7 +11,7 @@ h2,
 h3 {
 	font-size: 50px;
 	text-align: center;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	text-shadow: 5px 5px 0px red;
 }
 
@@ -33,6 +33,8 @@ button {
 	border: 3px dotted red;
 	cursor: pointer;
 	transition: all 0.1s ease-in-out;
+	padding-left: 40vh;
+	padding-bottom: 40vh;
 }
 
 button:hover {
@@ -52,12 +54,6 @@ a:hover {
 	background-color: lime;
 }
 
-.container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: 95vw;
-	height: 90vh;
-	border: 10px groove magenta;
+#password-text {
+	transform: rotate(10deg);
 }
