@@ -1,59 +1,114 @@
+@font-face {
+	font-family: badfont;
+	src: url(Flowers\ Kingdom.ttf);
+}
+
+* {
+	font-family: badfont;
+}
+
 body {
-	background-color: #ff00ff;
-	font-family: "Comic Sans MS", cursive, sans-serif;
-	color: #00ff00;
-	margin: 0;
-	padding: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	overflow: hidden;
+	background-image: linear-gradient(
+		to bottom right,
+		green,
+		red,
+		yellow,
+		blue,
+		purple
+	);
 }
 
-h1,
-h2,
-h3 {
-	font-size: 50px;
-	text-align: center;
-	/* text-transform: uppercase; */
-	text-shadow: 5px 5px 0px red;
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
 }
 
-p {
-	font-size: 22px;
-	line-height: 1.1;
-	background-color: yellow;
-	padding: 20px;
-	border: 5px dashed blue;
-	margin: 30px auto;
-	width: 80%;
+.username {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 10vh;
+	left: 3vw;
+	transform: rotate(30deg);
 }
 
-button {
-	background-color: cyan;
-	color: purple;
-	font-size: 25px;
-	padding: 15px;
-	border: 3px dotted red;
-	cursor: pointer;
-	transition: all 0.1s ease-in-out;
-	padding-left: 40vh;
-	padding-bottom: 40vh;
+.pwlen {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 40vh;
+	left: 25vw;
+	transform: rotate(110deg);
 }
 
-button:hover {
-	background-color: red;
-	color: yellow;
-	transform: rotate(10deg) scale(1.3);
+.choices .lowercase {
+	position: absolute;
+	top: 15vh;
+	left: 80vw;
+	transform: rotate(210deg);
+}
+.choices .uppercase {
+	position: absolute;
+	top: 20vh;
+	left: 85vw;
+	transform: rotate(300deg);
+}
+.choices .digits {
+	position: absolute;
+	top: 25vh;
+	left: 80vw;
+	transform: rotate(30deg);
+}
+.choices .specials {
+	position: absolute;
+	top: 20vh;
+	left: 75vw;
+	transform: rotate(120deg);
 }
 
-a {
-	color: orange;
-	font-weight: bold;
-	text-decoration: underline wavy pink;
+button.submit {
+	font-size: 10rem;
+	position: absolute;
+	bottom: 2rem;
+	right: 2rem;
+	transition: 1s;
 }
 
-a:hover {
-	color: black;
-	background-color: lime;
+button.submit:hover {
+	/* transform: skew(0, 360deg); */
+	transform: scale(0.1);
 }
 
 #password-text {
-	transform: rotate(10deg);
+	color: white;
+	text-shadow: 10px 10px 5px #ff0000, -10px -10px 5px #0000ff;
+	font-size: 6rem;
+	z-index: 1;
+	/* transform: rotate(-15deg); */
+}
+
+button.copy {
+	font-size: 2rem;
+	border-radius: 20%;
+	position: absolute;
+	bottom: 5rem;
+	right: 20rem;
+	z-index: 10;
+	transition: 1s;
+	transform: rotate(45deg);
+}
+
+button.copy:hover {
+	/* transform: skew(0, 360deg); */
+	transform: scale(10);
 }

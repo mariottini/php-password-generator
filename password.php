@@ -66,7 +66,7 @@
     echo "<h1 id='password-text'>" . generaPasswordSicura() . "</h1>";
     
     ?>  
-    <button onclick="copia()">Copy</button>
+    <button class="copy" onclick="copia()">Copy</button>
     <script>
         function copia() {
             let passwordText = document.getElementById('password-text');
