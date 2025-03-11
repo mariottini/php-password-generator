@@ -1,6 +1,6 @@
 @font-face {
 	font-family: badfont;
-	src: url(Jala.ttf);
+	src: url(font/Jala.ttf);
 }
 
 * {
@@ -26,6 +26,7 @@ body {
 }
 
 form {
+	position: absolute;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

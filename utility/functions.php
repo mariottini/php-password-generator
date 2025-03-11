@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
 <?php
     function generaPasswordSicura() {
 
@@ -64,20 +55,4 @@
         }
     };
     echo "<h1 id='password-text'>" . generaPasswordSicura() . "</h1>";
-    
-    ?>  
-    <button class="copy" onclick="copia()">Copy</button>
-    <script>
-        function copia() {
-            let passwordText = document.getElementById('password-text');
-            let password = document.createElement('input');
-            password.value = passwordText.innerText;
-            document.body.appendChild(password);
-            password.select();
-            document.execCommand('copy');
-            console.log('Copiato'); 
-            document.body.removeChild(password);
-        }
-    </script>
-</body>
-</html>
+?>
